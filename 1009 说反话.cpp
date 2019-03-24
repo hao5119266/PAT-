@@ -12,16 +12,16 @@ Hello World Here I Come
 输出样例：
 Come I Here World Hello
   */
- #include <cstdio>
+#include <cstdio>
 
 int main(){
   int num;
   char a[81][81];
-  whiel(scanf("%s,a[num]")!=EOF){
+  while(scanf("%s",a[num])!=EOF){
     num++;
   }
   for(int i=num-1;i>=0;i--){
-    printf(%s,ans[i]);
+    printf("%s",a[i]);
     if(i>0)printf(" ");
   }
   return 0;
