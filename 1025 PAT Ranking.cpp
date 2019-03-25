@@ -36,12 +36,13 @@ Sample Output:
 1234567890011 9 2 4
 */
 #include <cstdio>
+#include<cstring>
 #include<algorithm>
 
 using namespace std;
 
 struct Student{
-  int registration_number;
+  char registration_number[15];
   int final_rank;
   int location_number;
   int local_rank;
@@ -53,20 +54,20 @@ bool cmp(Student a,Student b){
    if(a.score!=b.score){
      return a.score>b.score;
    }
-   else return a.registration_number<b.registration_number;
-}
+   else return strcmp(a.registration_number,b.registration_number)<0;
+};
 
 int main(){
   int N;
   scanf("%d",&N);//输入N为多少组数据
   int num;//每个考场人数
   int total=0;//总人数
-  
+
   for(int i=0;i<N;i++){
     scanf("%d",&num);
-    
+
     for(int j=0;j<num;j++){
-      scanf("%d %d",&stu[total].registration_number,&stu[total].score);
+      scanf("%s %d",stu[total].registration_number,&stu[total].score);
       stu[total].location_number=i+1;//记录考场
       total++;
     }
@@ -88,7 +89,7 @@ int main(){
     if(i>0&&stu[i].score!=stu[i-1].score){
       r=i+1;
     }
-      printf("%d ",stu[i].registration_number);
+      printf("%s ",stu[i].registration_number);
       printf("%d %d %d\n",r,stu[i].location_number,stu[i].local_rank);
   }
   return 0;
